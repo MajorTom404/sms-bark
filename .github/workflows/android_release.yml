@@ -24,18 +24,22 @@ jobs:
 
       - name: Decode Keystore
         id: decode_keystore
-        if: ${{ !!secrets.KEYSTORE_BASE64 }}
         env:
             ENCODED_STRING: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
-            echo "$ENCODED_STRING" | base64 --decode > app/release.keystore
+            if [ -n "$ENCODED_STRING" ]; then
+                echo "$ENCODED_STRING" | base64 --decode > app/release.keystore
+                echo "Keystore decoded successfully."
+            else
+                echo "Keystore secret is empty or not set. Skipping signing."
+            fi
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build Release APK
         env:
-            KEYSTORE_FILE: release.keystore
+            KEYSTORE_FILE: app/release.keystore
             KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
             KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
             KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}

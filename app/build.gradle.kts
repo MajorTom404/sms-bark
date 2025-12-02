@@ -27,7 +27,7 @@ android {
             val keyAliasName = System.getenv("KEY_ALIAS")
             val keyPwd = System.getenv("KEY_PASSWORD")
 
-            if (!keystorePath.isNullOrEmpty()) {
+            if (!keystorePath.isNullOrEmpty() && file(keystorePath).exists()) {
                 storeFile = file(keystorePath)
                 storePassword = keystorePwd
                 keyAlias = keyAliasName
