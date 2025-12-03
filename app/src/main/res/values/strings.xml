@@ -25,5 +25,5 @@
     <string name="test_msg_success">测试发送成功</string>
     <string name="test_msg_fail">测试发送失败，请检查配置</string>
     <string name="version_label">版本: %s</string>
-    <string name="github_repo">GitHub 仓库</string>
+    <string name="github_repo">官方网站</string>
 </resources>

@@ -304,7 +304,7 @@ fun HomeScreen(navController: NavController) {
                     style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.clickable {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/chekun/sms-bark"))
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sms-bark.chekun.me"))
                         context.startActivity(intent)
                     }
                 )

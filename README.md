@@ -1,12 +1,17 @@
 # SmsBark - 短信验证码转发工具
 
-SmsBark 是一个轻量级的 Android 应用，用于自动捕获手机接收到的短信验证码，并通过 Bark 协议转发到您的 iOS 设备。
+SmsBark 是一个轻量级的 Android 应用，用于自动捕获手机接收到的短信验证码，并通过 Bark v2 协议转发到您的 iOS 设备。
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/chekun/sms-bark/refs/heads/main/web/screenshots/home.png" alt="首页截图" width="270"/>
+  <img src="https://raw.githubusercontent.com/chekun/sms-bark/refs/heads/main/web/screenshots/settings.png" alt="设置截图" width="270"/>
+</p>
 
 ## 核心功能
 
 *   **自动监听**: 实时监听接收到的短信。
-*   **智能识别**: 自动识别包含“验证码”或“code”关键词的短信。
-*   **即时转发**: 通过 HTTP 请求将短信内容推送到 Bark 服务器。
+*   **智能识别**: 自动识别包含“验证码”或“code”关键词的短信(可自定义关键字)。
+*   **即时转发**: 通过 HTTP 请求将短信内容推送到Bark服务器。
 *   **状态统计**: 每日实时展示转发成功和失败的条数。
 *   **后台保活**: 内置权限检测，指导用户开启必要的后台权限。
 
@@ -14,7 +19,7 @@ SmsBark 是一个轻量级的 Android 应用，用于自动捕获手机接收到
 
 ### 1. 配置 Bark
 1. 在 iOS 设备上安装 Bark App。
-2. 获取您的服务器地址（通常为 `https://api.day.app`）和 Token。
+2. 获取您的服务器地址和Token。
 3. 打开 SmsBark，点击右上角设置，填入上述信息并保存。
 
 ### 2. 权限设置 (至关重要)

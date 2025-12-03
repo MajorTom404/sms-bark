@@ -1,0 +1,336 @@
+:root {
+    --primary-color: #2196F3;
+    --primary-dark: #1976D2;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #f9f9f9;
+    --white: #ffffff;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Header */
+header {
+    background: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-primary, header .btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover, header .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(33, 150, 243, 0.05);
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    overflow: hidden; /* Prevent image overflow */
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 480px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Phone Frame Style for Screenshots */
+.phone-frame {
+    width: 300px; /* Adjust based on your screenshot aspect ratio */
+    border-radius: 40px;
+    border: 8px solid #333; /* Bezel */
+    background: #333;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    position: relative;
+    line-height: 0; /* Remove gap below image */
+}
+
+.phone-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 32px; /* Inner radius */
+    background: #fff;
+}
+
+/* Features */
+.features {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Screenshots Section */
+.screenshots {
+    padding: 80px 0;
+    background-color: #f0f4f8;
+    text-align: center;
+}
+
+.screenshots h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.screenshot-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.screenshot-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.screenshot-item .caption {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Setup Steps */
+.setup {
+    background-color: var(--white);
+    padding: 80px 0;
+}
+
+.setup h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-num {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.step h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}
+
+footer a {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .steps {
+        flex-direction: column;
+        gap: 40px;
+    }
+}

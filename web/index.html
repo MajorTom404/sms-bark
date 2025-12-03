@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmsBark - 短信验证码自动转发工具</title>
+    <meta name="description" content="SmsBark 是一款轻量级 Android 应用，能自动捕获短信验证码并通过 Bark 推送到您的 iOS 设备。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="54" cy="54" r="54" fill="#FFFFFF"/>
+                        <g transform="translate(13.5, 13.5) scale(0.75)">
+                            <path fill="#2196F3" d="M24,34 L84,34 A4,4 0,0 1,88 38 L88,66 A4,4 0,0 1,84 70 L70,70 L54,84 L38,70 L24,70 A4,4 0,0 1,20 66 L20,38 A4,4 0,0 1,24 34 z"/>
+                            <path fill="#FFFFFF" d="M34,48 L74,48 A2,2 0,0 1,76 50 L76,50 A2,2 0,0 1,74 52 L34,52 A2,2 0,0 1,32 50 L32,50 A2,2 0,0 1,34 48 z"/>
+                            <path fill="#FFFFFF" d="M34,58 L60,58 A2,2 0,0 1,62 60 L62,60 A2,2 0,0 1,60 62 L34,62 A2,2 0,0 1,32 60 L32,60 A2,2 0,0 1,34 58 z"/>
+                        </g>
+                    </svg>
+                </div>
+                <h1>SmsBark</h1>
+            </div>
+            <nav>
+                <a href="https://github.com/chekun/sms-bark" target="_blank">GitHub</a>
+                <a href="https://github.com/chekun/sms-bark/releases/latest" class="btn">下载 APK</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>SMS Bark</h2>
+                <p>将 Android 手机接收到的验证码自动转发到 iPhone、iPad 或 Mac，从此告别频繁查看备用机。</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/chekun/sms-bark/releases/latest" class="btn btn-primary">立即下载</a>
+                    <a href="#features" class="btn btn-secondary">了解功能</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-frame">
+                    <img src="screenshots/home.png" alt="SmsBark App 首页">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>极速转发</h3>
+                    <p>毫秒级监听，短信到达瞬间即可推送到您的主力设备。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔍</div>
+                    <h3>按需转发</h3>
+                    <p>识别并转发包含含有您配置的关键词的重要信息，如“验证码”、“Code”等</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>实时统计</h3>
+                    <p>清晰展示每日转发成功与失败次数，运行状态一目了然。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>隐私安全</h3>
+                    <p>开源透明，数据直接在您的设备与 Bark 服务器间传输，不经过第三方服务器。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2>界面预览</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <div class="phone-frame">
+                        <img src="screenshots/home.png" alt="首页统计">
+                    </div>
+                    <p class="caption">运行状态一目了然</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="phone-frame">
+                        <img src="screenshots/settings.png" alt="简单配置">
+                    </div>
+                    <p class="caption">简单直观的配置</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="setup">
+        <div class="container">
+            <h2>简单三步，开启同步</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <h4>安装 Bark</h4>
+                    <p>在 iOS 设备上下载并安装 Bark App，获取您的专属服务器地址和 Token。</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <h4>配置 SmsBark</h4>
+                    <p>在 Android 手机安装 SmsBark，填入 Bark 的服务器地址和 Token。</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <h4>授予权限</h4>
+                    <p>授予短信读取权限并允许后台运行，即可开始享受自动转发。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SmsBark.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
