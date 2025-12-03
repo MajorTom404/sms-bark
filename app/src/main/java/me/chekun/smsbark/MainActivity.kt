@@ -278,6 +278,37 @@ fun HomeScreen(navController: NavController) {
                     }
                 }
             }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            // Version and GitHub Link
+            val version = try {
+                val pInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+                pInfo.versionName
+            } catch (e: Exception) {
+                "Unknown"
+            }
+            
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
+                Text(
+                    text = String.format(stringResource(R.string.version_label), version),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.github_repo),
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.clickable {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/chekun/sms-bark"))
+                        context.startActivity(intent)
+                    }
+                )
+            }
         }
     }
 }
