@@ -1,8 +1,9 @@
 name: Android Release Build
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
 
 jobs:
   build:
