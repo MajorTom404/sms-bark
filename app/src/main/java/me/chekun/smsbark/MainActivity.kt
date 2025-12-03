@@ -69,6 +69,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -410,6 +411,7 @@ fun ConfigScreen(navController: NavController) {
     var barkServer by remember { mutableStateOf(getConfig(context, "bark_server")) }
     var barkToken by remember { mutableStateOf(getConfig(context, "bark_token")) }
     var keywords by remember { mutableStateOf(getConfig(context, "keywords", "验证码,code,otp")) }
+    var onlyForwardKeywords by remember { mutableStateOf(getConfig(context, "only_forward_keywords", "true") == "true") }
     val coroutineScope = rememberCoroutineScope()
     
     val testMsgTitle = stringResource(R.string.test_msg_title)
@@ -489,6 +491,35 @@ fun ConfigScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                androidx.compose.material3.Switch(
+                    checked = onlyForwardKeywords,
+                    onCheckedChange = { onlyForwardKeywords = it }
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text(
+                        text = "仅转发包含关键字的短信",
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Text(
+                        text = "关闭后将转发所有收到的短信（包括普通聊天/广告），请谨慎使用。",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Start
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             Button(
                 onClick = {
                     coroutineScope.launch {
@@ -521,7 +552,7 @@ fun ConfigScreen(navController: NavController) {
             
             Button(
                 onClick = {
-                    saveConfig(context, barkServer, barkToken, keywords)
+                    saveConfig(context, barkServer, barkToken, keywords, onlyForwardKeywords)
                     navController.popBackStack()
                 },
                 modifier = Modifier
@@ -551,11 +582,18 @@ private fun getConfig(context: Context, key: String, defaultValue: String = ""):
     return prefs.getString(key, defaultValue) ?: defaultValue
 }
 
-private fun saveConfig(context: Context, barkServer: String, barkToken: String, keywords: String) {
+private fun saveConfig(
+    context: Context,
+    barkServer: String,
+    barkToken: String,
+    keywords: String,
+    onlyForwardKeywords: Boolean
+) {
     val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
     val editor = prefs.edit()
     editor.putString("bark_server", barkServer)
     editor.putString("bark_token", barkToken)
     editor.putString("keywords", keywords)
+    editor.putString("only_forward_keywords", if (onlyForwardKeywords) "true" else "false")
     editor.apply()
 }

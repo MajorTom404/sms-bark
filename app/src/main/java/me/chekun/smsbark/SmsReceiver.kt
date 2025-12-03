@@ -22,6 +22,7 @@ class SmsReceiver : BroadcastReceiver() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                    val onlyForwardKeywords = prefs.getString("only_forward_keywords", "true") == "true"
                     // 获取用户配置的关键词，如果为空则使用默认值
                     val keywordsConfig = prefs.getString("keywords", "") ?: ""
                     val finalKeywordsString = if (keywordsConfig.isBlank()) DEFAULT_KEYWORDS else keywordsConfig
@@ -34,14 +35,16 @@ class SmsReceiver : BroadcastReceiver() {
                     for (message in smsMessages) {
                         val rawMessageBody = message.messageBody
                         val lowerCaseBody = rawMessageBody.lowercase()
-                        
-                        // 检查是否包含任一关键词
-                        val isMatch = keywords.any { keyword -> 
-                            lowerCaseBody.contains(keyword) 
-                        }
-                        
-                        if (!isMatch) {
-                            continue
+
+                        if (onlyForwardKeywords) {
+                            // 检查是否包含任一关键词
+                            val isMatch = keywords.any { keyword ->
+                                lowerCaseBody.contains(keyword)
+                            }
+
+                            if (!isMatch) {
+                                continue
+                            }
                         }
                         
                         val barkServer = prefs.getString("bark_server", "") ?: ""
